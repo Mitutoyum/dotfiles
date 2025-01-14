@@ -1,4 +1,4 @@
-My neovim config
+Neovim configuration
 
 ## Dependencies
 - Clipboard tool
@@ -9,6 +9,7 @@ My neovim config
 - [tmux](https://github.com/tmux/tmux/) `optional`
 
 - [npm](https://nodejs.org)
+- [pip](https://pypi.org/project/pip/)
 
 - [BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep)
 - [sharkdp/fd](https://github.com/sharkdp/fd)
