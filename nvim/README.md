@@ -6,6 +6,8 @@ Neovim configuration
     - [wl-clipboard](https://github.com/bugaevc/wl-clipboard) for wayland
     - [win32yank](https://github.com/equalsraf/win32yank) for windows
 
+- A [nerdfont](https://www.nerdfonts.com/)
+
 - [tmux](https://github.com/tmux/tmux/) `optional`
 
 - [npm](https://nodejs.org)
