@@ -1,15 +1,15 @@
 Neovim configuration
 
 ## Dependencies
-- Clipboard tool
+
+- clipboard tool
     - [xclip](https://github.com/astrand/xclip) for xorg
     - [wl-clipboard](https://github.com/bugaevc/wl-clipboard) for wayland
-    - [win32yank](https://github.com/equalsraf/win32yank) for windows
+    - [win33yank](https://github.com/equalsraf/win32yank) for windows
 
-- A [nerdfont](https://www.nerdfonts.com/)
+- [nerdfont](https://www.nerdfonts.com/)
 
-- [tmux](https://github.com/tmux/tmux/) `optional`
-
+- [tmux](https://github.com/tmux/tmux/)
 - [npm](https://nodejs.org)
 - [pip](https://pypi.org/project/pip/)
 
