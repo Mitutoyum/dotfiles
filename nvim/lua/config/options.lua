@@ -17,7 +17,7 @@ vim.opt.showmode = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
 vim.opt.mouse = "a"
 vim.opt.ignorecase = true
 vim.opt.undofile = true
