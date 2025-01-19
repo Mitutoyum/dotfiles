@@ -1,8 +1,12 @@
 return {
 	"mfussenegger/nvim-dap",
-	dependencies = { "rcarriga/nvim-dap-ui", "nvim-neotest/nvim-nio" },
+	dependencies = {
+		"rcarriga/nvim-dap-ui",
+		"nvim-neotest/nvim-nio",
+		"jay-babu/mason-nvim-dap.nvim",
+	},
 	config = function()
-		local dap, dapui = require("dap"), require("dapui")
+		local dap, dapui, mason_dap = require("dap"), require("dapui"), require("mason-nvim-dap")
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
@@ -58,5 +62,15 @@ return {
 			local widgets = require("dap.ui.widgets")
 			widgets.centered_float(widgets.scopes)
 		end)
+
+		require("dapui").setup()
+
+		require("mason-nvim-dap").setup({
+			handlers = {
+				function(config)
+					require("mason-nvim-dap").default_setup(config)
+				end,
+			},
+		})
 	end,
 }
