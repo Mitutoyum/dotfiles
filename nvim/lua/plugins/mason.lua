@@ -19,6 +19,9 @@ return {
 
 			-- linters
 			"pylint",
+
+			-- debuggers
+			"debugpy",
 		},
 	},
 	config = function(_, opts)
