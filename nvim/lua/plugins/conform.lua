@@ -1,30 +1,33 @@
 return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
-	config = function()
-		local conform = require("conform")
+	keys = {
+		{
+			-- Customize or remove this keymap to your liking
+			"<leader>mp",
+			function()
+				require("conform").format({ async = true })
+			end,
+			mode = "",
+			desc = "[M]ake [P]retty",
+		},
+	},
+	opts = {
+		formatters_by_ft = {
+			lua = { "stylua" },
+			python = function(bufnr)
+				if require("conform").get_formatter_info("ruff_format", bufnr).available then
+					return { "ruff_format" }
+				else
+					return { "isort", "black" }
+				end
+			end,
 
-		conform.setup({
-			formatters_by_ft = {
-				lua = { "stylua" },
-				python = function(bufnr)
-					if require("conform").get_formatter_info("ruff_format", bufnr).available then
-						return { "ruff_format" }
-					else
-						return { "isort", "black" }
-					end
-				end,
+			cpp = { "clang-format" },
+		},
 
-				cpp = { "clang-format" },
-			},
-
-			format_on_save = {
-				lsp_format = "fallback",
-			},
-		})
-
-		vim.keymap.set("n", "<leader>mp", function()
-			conform.format({ lsp_format = "fallback", async = true })
-		end, { desc = "[M]ake [P]retty" })
-	end,
+		format_on_save = {
+			lsp_format = "fallback",
+		},
+	},
 }
