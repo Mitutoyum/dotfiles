@@ -63,12 +63,12 @@ return {
 			widgets.centered_float(widgets.scopes)
 		end)
 
-		require("dapui").setup()
+		dapui.setup()
 
-		require("mason-nvim-dap").setup({
+		mason_dap.setup({
 			handlers = {
 				function(config)
-					require("mason-nvim-dap").default_setup(config)
+					mason_dap.default_setup(config)
 				end,
 			},
 		})
