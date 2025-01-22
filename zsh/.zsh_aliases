@@ -1,3 +1,6 @@
+alias workspace='cd $WORKSPACE'
+alias venv='source .venv/bin/activate'
+
 alias l='ls'
 alias ll='ls -l'
 alias la='ls -a'
