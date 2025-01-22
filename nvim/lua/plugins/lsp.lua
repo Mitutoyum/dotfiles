@@ -1,7 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 
@@ -41,7 +40,7 @@ return {
 				map("td", builtin.lsp_type_definitions, "[T]ype [D]efinition")
 				map("gD", vim.lsp.buf.definition, "[G]oto [D]eclaration")
 
-				-- map("K", vim.lsp.buf.hover, "Hover") they have this built in idk why
+				-- map("K", vim.lsp.buf.hover, "Hover") they have this built in idk where
 
 				map("ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 				map("rn", vim.lsp.buf.rename, "[R]e[n]ame")
