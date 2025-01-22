@@ -7,19 +7,19 @@ return {
 			offsets = {
 				{
 					filetype = "neo-tree",
-					text = "Neo-tree",
+					text = "NeoTree",
 					text_align = "left",
-					highlight = "Directory",
+					separator = true,
 				},
 			},
 			diagnostics = "nvim_lsp",
+			numbers = "buffer_id",
 		},
 	},
 	config = function(_, opts)
 		require("bufferline").setup(opts)
-		local map = vim.keymap.set
 
-		map("n", "]b", "<cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })
-		map("n", "[b", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
+		vim.keymap.set("n", "]b", "<cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })
+		vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
 	end,
 }
