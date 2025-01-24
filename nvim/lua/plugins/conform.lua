@@ -1,14 +1,13 @@
 return {
 	"stevearc/conform.nvim",
+	dependencies = { "williamboman/mason.nvim" },
 	event = { "BufWritePre" },
 	keys = {
 		{
-			-- Customize or remove this keymap to your liking
 			"<leader>mp",
 			function()
 				require("conform").format({ async = true })
 			end,
-			mode = "",
 			desc = "[M]ake [P]retty",
 		},
 	},
