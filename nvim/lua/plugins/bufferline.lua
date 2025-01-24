@@ -2,6 +2,19 @@ return {
 	"akinsho/bufferline.nvim",
 	version = "*",
 	dependencies = "nvim-tree/nvim-web-devicons",
+	event = "VeryLazy",
+	keys = {
+		{
+			"]b",
+			"<cmd>BufferLineCycleNext<CR>",
+			desc = "Next Buffer",
+		},
+		{
+			"[b",
+			"<cmd>BufferLineCyclePrev<CR>",
+			desc = "Previous Buffer",
+		},
+	},
 	opts = {
 		options = {
 			offsets = {
@@ -16,10 +29,4 @@ return {
 			numbers = "buffer_id",
 		},
 	},
-	config = function(_, opts)
-		require("bufferline").setup(opts)
-
-		vim.keymap.set("n", "]b", "<cmd>BufferLineCycleNext<CR>", { desc = "Next Buffer" })
-		vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
-	end,
 }
