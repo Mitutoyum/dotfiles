@@ -12,7 +12,7 @@ return {
 
 			-- formatters
 			"stylua",
-			"ruff",
+			-- "ruff",
 			"isort",
 			"black",
 			"clang-format",
