@@ -35,3 +35,6 @@ map("t", "<C-[", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Yanking / Pasting
 map("n", "y", "yy", { desc = "Yank" })
+
+-- Remove yank on delete behavior
+map("n", "dd", '"_dd', { desc = "Delete line" })
