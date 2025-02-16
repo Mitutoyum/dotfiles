@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.g.terminal_direction = "float"
 
 -- indentation
 vim.opt.tabstop = 4
@@ -22,3 +23,5 @@ vim.opt.mouse = "a"
 vim.opt.ignorecase = true
 vim.opt.undofile = true
 vim.opt.confirm = true
+
+vim.opt.shell = "/usr/bin/zsh"
