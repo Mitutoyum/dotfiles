@@ -1,5 +1,7 @@
 local map = vim.keymap.set
 
+-- map("n", "<leader>a", "gg<S-v><S-g>", { desc = "Select all" })
+
 -- Navigate windows
 map("n", "<C-h>", "<C-w>h", { desc = "Goto left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Goto lower window" })
@@ -36,5 +38,5 @@ map("t", "<C-[", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- Yanking / Pasting
 map("n", "y", "yy", { desc = "Yank" })
 
--- Remove yank on delete behavior
-map("n", "dd", '"_dd', { desc = "Delete line" })
+-- No yank-on-delete
+map({ "n", "v" }, "d", '"_d', { desc = "Delete" })
