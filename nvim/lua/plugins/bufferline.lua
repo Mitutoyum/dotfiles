@@ -14,6 +14,16 @@ return {
 			"<cmd>BufferLineCyclePrev<CR>",
 			desc = "Previous Buffer",
 		},
+		{
+			"<Tab>",
+			"<cmd>BufferLineCycleNext<CR>",
+			desc = "Next Buffer",
+		},
+		{
+			"<S-Tab>",
+			"<cmd>BufferLineCyclePrev<CR>",
+			desc = "Previous Buffer",
+		},
 	},
 	opts = {
 		options = {
