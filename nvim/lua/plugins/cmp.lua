@@ -3,7 +3,6 @@ return {
 	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-nvim-lua",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-emoji",
@@ -11,24 +10,22 @@ return {
 
 		"chrisgrieser/cmp-nerdfont",
 		"saadparwaiz1/cmp_luasnip",
-		"andersevenrud/cmp-tmux",
-		"ray-x/cmp-treesitter",
 
 		"L3MON4D3/LuaSnip",
 		"folke/lazydev.nvim",
-		"onsails/lspkind.nvim", -- for icons
+		"onsails/lspkind.nvim",
 	},
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
-		cmp.setup({
 
+		cmp.setup({
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
 			},
 
-			enabled = function() -- dont complete comments
+			enabled = function()
 				local context = require("cmp.config.context")
 				if vim.api.nvim_get_mode().mode == "c" then
 					return true
@@ -47,15 +44,12 @@ return {
 				{ name = "lazydev" },
 
 				{ name = "nvim_lsp" },
-				{ name = "nvim_lua" },
-
 				{ name = "luasnip" },
-				{ name = "buffer" },
-				{ name = "path" },
 				{ name = "treesitter" },
 				{ name = "emoji" },
 				{ name = "nerdfont" },
-				{ name = "tmux" },
+			}, {
+				{ name = "buffer" },
 			}),
 
 			mapping = cmp.mapping.preset.insert({
@@ -66,6 +60,7 @@ return {
 				["<C-b>"] = cmp.mapping.scroll_docs(-4), -- scroll up
 
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<C-e>"] = cmp.mapping.abort(),
 
 				["<CR>"] = cmp.mapping({
 					i = function(fallback)
@@ -87,7 +82,9 @@ return {
 			}),
 
 			formatting = {
-				format = lspkind.cmp_format({}),
+				format = lspkind.cmp_format({
+					mode = "symbol",
+				}),
 			},
 
 			experimental = {
