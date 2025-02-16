@@ -14,10 +14,10 @@ return {
 		local action_state = require("telescope.actions.state")
 		local dropdown = require("telescope.themes").get_dropdown()
 		local directions = {
-			"float",
-			"horizontal",
-			"vertical",
-			"tab",
+			{ "float", "󰉧" },
+			{ "horizontal", "" },
+			{ "vertical", "" },
+			{ "tab", "󰓩" },
 		}
 
 		local direction_picker = function(opts)
@@ -27,6 +27,14 @@ return {
 					prompt_title = "Terminal Direction",
 					finder = finders.new_table({
 						results = directions,
+						entry_maker = function(entry)
+							local direction, icon = entry[1], entry[2]
+							return {
+								value = entry,
+								display = icon .. " " .. direction,
+								ordinal = direction,
+							}
+						end,
 					}),
 					sorter = conf.generic_sorter(opts),
 					attach_mappings = function(prompt_bufnr, map)
