@@ -9,7 +9,6 @@ Neovim configuration
 
 - [nerdfont](https://www.nerdfonts.com/)
 
-- [tmux](https://github.com/tmux/tmux/)
 - [npm](https://nodejs.org)
 - [pip](https://pypi.org/project/pip/)
 
