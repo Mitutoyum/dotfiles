@@ -31,10 +31,6 @@ map("n", "<", "<<", { desc = "Indent left" })
 map("v", ">", ">gv", { desc = "Indent right" })
 map("v", "<", "<gv", { desc = "Indent left" })
 
--- Terminal
-map("t", "<esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-map("t", "<C-[", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
 -- Yanking / Pasting
 map("n", "y", "yy", { desc = "Yank" })
 

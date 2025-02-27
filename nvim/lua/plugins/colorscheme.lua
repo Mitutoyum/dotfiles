@@ -61,7 +61,7 @@ local gruvbox = {
 			transparent_mode = false,
 		})
 		vim.cmd("colorscheme gruvbox")
-		vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" }) -- line to fix de background color border
+		vim.api.nvim_set_hl(0, "FloatBorder", { link = "Normal" })
 	end,
 }
 

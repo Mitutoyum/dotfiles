@@ -7,6 +7,8 @@ return {
 		ensure_installed = {
 			-- lsp
 			"lua-language-server",
+			"cmake-language-server",
+			"json-lsp",
 			"pyright",
 			"clangd",
 
@@ -27,7 +29,7 @@ return {
 	config = function(_, opts)
 		require("mason").setup()
 
-		-- installing mason packages normally doesnt work on termux, so i made a workaround
+		-- installing mason packages doesnt work on termux, so i made a workaround
 		if string.find(os.getenv("SHELL"):lower(), "termux") then
 			local registry = require("mason-registry")
 

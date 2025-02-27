@@ -3,9 +3,8 @@ return {
 	opts = {
 		events = { "BufWritePost", "BufReadPost", "InsertLeave" },
 		linters_by_ft = {
-			-- You can add linters here
-			-- Example:
 			-- python = { "pylint" },
+			-- ...
 		},
 	},
 	config = function(_, opts)

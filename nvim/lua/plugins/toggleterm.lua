@@ -2,6 +2,7 @@ return {
 	"akinsho/toggleterm.nvim",
 	version = "*",
 	opts = {
+		open_mapping = [[<c-t>]],
 		shade_terminals = false,
 		direction = vim.g.terminal_direction,
 	},
@@ -41,7 +42,10 @@ return {
 						actions.select_default:replace(function()
 							actions.close(prompt_bufnr)
 							local selection = action_state.get_selected_entry()
-							vim.g.terminal_direction = selection[1]
+							if not selection then
+								return
+							end
+							vim.g.terminal_direction = selection.value[1]
 						end)
 						return true
 					end,
@@ -52,27 +56,32 @@ return {
 		function _G.set_terminal_keymaps()
 			local opts = { buffer = 0 }
 			vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+			vim.keymap.set("t", "<C-[", [[<C-\><C-n>]], opts)
 			vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
 			vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
 			vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
 			vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
 			vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+
+			vim.keymap.set("t", "<S-Space>", "<Space>", opts)
+
+			vim.keymap.set("t", "<S-Enter>", "<Enter>", opts)
 		end
 
 		-- if you only want these mappings for toggle term use term://*toggleterm#* instead
 		vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
-		vim.keymap.set("n", "<leader>sd", function()
+		vim.keymap.set("n", "<leader>tsd", function()
 			direction_picker(dropdown)
-		end, { desc = "[S]witch terminal [d]irection" })
+		end, { desc = "Switch terminal direction" })
 
 		vim.keymap.set("n", "<leader>tt", function()
 			toggleterm.toggle(nil, nil, nil, vim.g.terminal_direction, nil)
-		end, { desc = "[T]oggle [T]erminal" })
+		end, { desc = "Toggle terminal" })
 
-		vim.keymap.set({ "n", "t" }, "<C-t>", function()
+		vim.keymap.set({ "n", "t" }, "<C-\\>", function()
 			toggleterm.toggle(nil, nil, nil, vim.g.terminal_direction, nil)
-		end, { desc = "Toggle [T]erminal" })
+		end, { desc = "Toggle Terminal" })
 
 		toggleterm.setup(opts)
 	end,

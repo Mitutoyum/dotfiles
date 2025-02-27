@@ -40,31 +40,23 @@ return {
 					vim.keymap.set(mode, keys, func, { desc = desc, buffer = event.buffer })
 				end
 
-				map("gd", builtin.lsp_definitions, "[G]oto [D]efinition")
-				map("gr", builtin.lsp_references, "[G]oto [R]eference")
-				map("gi", builtin.lsp_implementations, "[G]oto [I]mplementation")
-				map("td", builtin.lsp_type_definitions, "[T]ype [D]efinition")
-				map("gD", vim.lsp.buf.definition, "[G]oto [D]eclaration")
+				map("gd", builtin.lsp_definitions, "Goto Definition")
+				map("gr", builtin.lsp_references, "Goto Reference")
+				map("gI", builtin.lsp_implementations, "Goto Implementation")
+				map("gy", builtin.lsp_type_definitions, "Goto Type Definition")
+				map("gD", vim.lsp.buf.definition, "Goto Declaration")
 
-				-- map("K", vim.lsp.buf.hover, "Hover") they have this built in idk where
+				-- map("K", vim.lsp.buf.hover, "Hover")
+				map("gK", vim.lsp.buf.signature_help, "Signature Help")
 
-				map("ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-				map("rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
+				map("<leader>cl", vim.lsp.codelens.run, "Code Lens")
+
+				map("<leader>rn", vim.lsp.buf.rename, "Rename")
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
 					local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-						buffer = event.buf,
-						group = highlight_augroup,
-						callback = vim.lsp.buf.document_highlight,
-					})
-
-					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-						buffer = event.buf,
-						group = highlight_augroup,
-						callback = vim.lsp.buf.clear_references,
-					})
 
 					vim.api.nvim_create_autocmd("LspDetach", {
 						group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
@@ -78,7 +70,7 @@ return {
 				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 					map("<leader>th", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-					end, "[T]oggle Inlay [H]ints")
+					end, "Toggle Inlay Hints")
 				end
 			end,
 		})

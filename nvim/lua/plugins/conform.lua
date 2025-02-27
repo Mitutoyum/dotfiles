@@ -4,11 +4,11 @@ return {
 	event = { "BufWritePre" },
 	keys = {
 		{
-			"<leader>mp",
+			"<leader>cf",
 			function()
 				require("conform").format({ async = true })
 			end,
-			desc = "[M]ake [P]retty",
+			desc = "Conform",
 		},
 	},
 	opts = {

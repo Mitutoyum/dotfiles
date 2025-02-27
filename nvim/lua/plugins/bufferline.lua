@@ -24,6 +24,18 @@ return {
 			"<cmd>BufferLineCyclePrev<CR>",
 			desc = "Previous Buffer",
 		},
+
+		{
+			"<leader>bd",
+			"<cmd>bd<CR>",
+			desc = "[B]uffer [D]elete",
+		},
+
+		{
+			"<leader>bco",
+			"<cmd>BufferLineCloseOthers<CR>",
+			desc = "[B]uffer [C]lose [O]thers",
+		},
 	},
 	opts = {
 		options = {
