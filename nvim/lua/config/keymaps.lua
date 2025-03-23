@@ -36,3 +36,7 @@ map("n", "y", "yy", { desc = "Yank" })
 
 -- No yank-on-delete
 map({ "n", "v" }, "d", '"_d', { desc = "Delete" })
+map({ "n", "v" }, "D", '"_D', { desc = "Delete" })
+
+map({ "n", "v" }, "s", '"_s', { desc = "Delete" })
+map({ "n", "v" }, "S", '"_S', { desc = "Delete" })

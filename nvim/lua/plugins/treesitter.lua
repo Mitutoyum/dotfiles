@@ -20,6 +20,7 @@ return {
 		-- 	"markdown_inline",
 		-- },
 		-- sync_install = true, -- for low-end devices
+
 		ensure_installed = "all",
 		auto_install = true,
 		highlight = { enable = true },
