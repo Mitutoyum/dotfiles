@@ -6,9 +6,7 @@ return {
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-emoji",
-		"hrsh7th/cmp-path",
 
-		"chrisgrieser/cmp-nerdfont",
 		"saadparwaiz1/cmp_luasnip",
 
 		"L3MON4D3/LuaSnip",
@@ -45,9 +43,7 @@ return {
 
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
-				{ name = "treesitter" },
 				{ name = "emoji" },
-				{ name = "nerdfont" },
 			}, {
 				{ name = "buffer" },
 			}),
