@@ -99,6 +99,7 @@ return {
 
 							-- Depending on what you want put `cd`, `lcd`, `tcd`
 							-- vim.cmd(string.format("silent lcd %s", dir))
+
 							vim.api.nvim_set_current_dir(dir)
 						end,
 
@@ -144,5 +145,14 @@ return {
 			":Telescope file_browser path=%:p:h select_buffer=true<CR>",
 			{ desc = "Telescope file browser" }
 		)
+
+		vim.api.nvim_create_user_command("SelectWD", function()
+			local get_dirs = require("dir-telescope.util").get_dirs
+			local settings = require("dir-telescope.settings").current
+
+			get_dirs(settings, function(opts)
+				vim.api.nvim_set_current_dir(opts.search_dirs[1])
+			end)
+		end, { desc = "Select working directory" })
 	end,
 }
