@@ -1,34 +1,4 @@
-local nvimtree = {
-	"nvim-tree/nvim-tree.lua",
-	version = "*",
-	lazy = false,
-	dependencies = {
-		"nvim-tree/nvim-web-devicons",
-	},
-	config = function()
-		local tree = require("nvim-tree")
-		local api = require("nvim-tree.api")
-
-		tree.setup({
-			disable_netrw = true,
-
-			on_attach = api.config.mappings.default_on_attach,
-
-			filters = {
-				dotfiles = false,
-			},
-		})
-
-		local map = function(keys, func, desc, mode)
-			mode = mode or "n"
-			vim.keymap.set(mode, keys, func, { desc = desc })
-		end
-
-		map("<leader>fe", api.tree.toggle, "[F]ile [E]xplorer")
-	end,
-}
-
-local neotree = {
+return {
 	"nvim-neo-tree/neo-tree.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -37,7 +7,7 @@ local neotree = {
 		-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 	},
 	opts = {
-		popup_border_style = "rounded",
+		-- popup_border_style = "rounded",
 		source_selector = {
 			winbar = true,
 		},
@@ -73,5 +43,3 @@ local neotree = {
 		end, "[B]uffer [E]xplorer")
 	end,
 }
-
-return neotree
