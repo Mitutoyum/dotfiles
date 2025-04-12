@@ -19,6 +19,12 @@ return {
 			preset = {
 				keys = {
 					{
+						icon = " ",
+						key = "s",
+						desc = "Select working directory",
+						action = "<CMD>SelectWD<CR>",
+					},
+					{
 						icon = " ",
 						key = "f",
 						desc = "Find File",
@@ -30,18 +36,18 @@ return {
 						desc = "Find Text",
 						action = "<CMD>lua Snacks.dashboard.pick('live_grep')<CR>",
 					},
-					{
-						icon = " ",
-						key = "F",
-						desc = "Find File Directory",
-						action = "<CMD>Telescope dir find_files<CR>",
-					},
-					{
-						icon = " ",
-						key = "G",
-						desc = "Find Text Directory",
-						action = "<CMD>Telescope dir live_grep<CR>",
-					},
+					-- {
+					-- 	icon = " ",
+					-- 	key = "F",
+					-- 	desc = "Find File Directory",
+					-- 	action = "<CMD>Telescope dir find_files<CR>",
+					-- },
+					-- {
+					-- 	icon = " ",
+					-- 	key = "G",
+					-- 	desc = "Find Text Directory",
+					-- 	action = "<CMD>Telescope dir live_grep<CR>",
+					-- },
 					{
 						icon = " ",
 						key = "b",
